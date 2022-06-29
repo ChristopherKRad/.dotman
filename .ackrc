@@ -1,0 +1,8 @@
+# Always sort files
+--sort-files
+
+# Always use color
+--color
+
+# remove file extensions
+--ignore-file=ext:po,pot
