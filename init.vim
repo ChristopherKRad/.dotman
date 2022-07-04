@@ -7,10 +7,10 @@ set clipboard+=unnamedplus " unclear clipboard setting
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kdheepak/lazygit.vim', { 'branch': 'nvim-v0.4.3' }
@@ -55,11 +55,13 @@ if (has("termguicolors"))
 endif
 
 " Specific formatting for vim-deep-space
-syntax on
-set background=dark
-set termguicolors
-let g:deepspace_italics=1
-colorscheme deep-space
+"syntax on
+"set background=dark
+"set termguicolors
+"let g:deepspace_italics=1
+
+" Specfic formatting for Nightfox
+colorscheme nightfox
 
 " highlights line counter color
 hi LineNr guifg=#E8A84F
@@ -83,8 +85,10 @@ map <silent> <C-m> :set mouse=n<CR>
 
 let g:deoplete#enable_at_startup = 1
 
-" LanguageServerProtocol
+" Config for telescope-file-browser
 
+
+" LanguageServerProtocol
 :lua << EOF " Enable lua till end of file
 local nvim_lsp = require('lspconfig')
 
