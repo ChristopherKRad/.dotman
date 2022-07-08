@@ -81,7 +81,10 @@ map <silent> <C-f> :FZF<CR>
 map <silent> <C-n> :NERDTreeFocus<CR>
 
 " Hotkey for resizing with mouse
-map <silent> <C-m> :set mouse=n<CR>
+map <silent> <C-c> :set mouse=n<CR>
+
+" Hotkey for using escape to go from terminal mode to normal mode
+:tnoremap <Esc> <C-\><C-n>
 
 let g:deoplete#enable_at_startup = 1
 
