@@ -1,6 +1,6 @@
 " curl -fLO $HOME/.config/nvim/autoload/plug.vim --create dirs \ oi" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-set number relativenumber
+set number
 set nocompatible	" be iMproved, required
 filetype off		" required
 set clipboard+=unnamedplus " unclear clipboard setting
@@ -9,6 +9,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'EdenEast/nightfox.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'lukas-reineke/indent-blankline.nvim'
+" nvim-tree not working - need to convert to init.lua
+" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -54,14 +57,13 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-" Specific formatting for vim-deep-space
-"syntax on
-"set background=dark
-"set termguicolors
-"let g:deepspace_italics=1
+" Specific for indentaion 
+" Plug 'lukas-reineke/indent-blankline.nvim'
+:set shiftwidth=4
+let g:indent_blankline_space_char_blankline = ' '
 
 " Specfic formatting for Nightfox
-colorscheme nightfox
+colorscheme terafox
 
 " highlights line counter color
 hi LineNr guifg=#E8A84F
@@ -81,15 +83,12 @@ map <silent> <C-f> :FZF<CR>
 map <silent> <C-n> :NERDTreeFocus<CR>
 
 " Hotkey for resizing with mouse
-map <silent> <C-c> :set mouse=n<CR>
+map <silent> <C-o> :set mouse=n<CR>
 
 " Hotkey for using escape to go from terminal mode to normal mode
 :tnoremap <Esc> <C-\><C-n>
 
 let g:deoplete#enable_at_startup = 1
-
-" Config for telescope-file-browser
-
 
 " LanguageServerProtocol
 :lua << EOF " Enable lua till end of file
@@ -103,4 +102,13 @@ nvim_lsp.elixirls.setup{
       fetchDeps = false
     }
   }
+}
+
+vim.opt.list = true
+vim.opt.listchars:append("eol:↴")
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
 }
