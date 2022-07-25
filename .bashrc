@@ -139,16 +139,19 @@ export EDITOR="nvim"
 # highlighting and syntax aliases ----------------------------------------------
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
+# git aliases ------------------------------------------------------------------
+
+alias gs="git status"
 
 # odoo and other productivity focused aliases ----------------------------------
 # runs on localhost:8069
-alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -d odoo15 -r chris -w Cicada_3301"
+alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -d odoo15 "
 
 # Runs odoo for the first time without demo data on odoo15 db
-alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 -r chris -w Cicada_3301 --without-demo=all -i base"
+alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 --without-demo=all -i base"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./psus-cracustom -u contact_creditecheck -d odoo15 -r chris -w Cicada_3301"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom/proofprocess -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
@@ -156,6 +159,8 @@ alias runserver="python manage.py runserver"
 #alias for Django projects to run venv
 alias activate=". venv/bin/activate"
 
+#alias for opening html files or other files in the browser
+alias see="explorer.exe"
 
 # check postgresql status and start the server
 alias pstatus="sudo service postgresql status"
