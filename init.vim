@@ -10,13 +10,12 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'EdenEast/nightfox.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'lukas-reineke/indent-blankline.nvim'
-" nvim-tree not working - need to convert to init.lua
-" Plug 'kyazdani42/nvim-web-devicons'
-Plug 'preservim/nerdtree'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kana/vim-textobj-user'
-Plug 'kdheepak/lazygit.vim', { 'branch': 'nvim-v0.4.3' }
+Plug 'kdheepak/lazygit.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
 Plug 'neovim/nvim-lspconfig'
@@ -63,7 +62,7 @@ endif
 let g:indent_blankline_space_char_blankline = ' '
 
 " Specfic formatting for Nightfox
-colorscheme terafox
+colorscheme duskfox
 
 " highlights line counter color
 hi LineNr guifg=#E8A84F
@@ -80,7 +79,7 @@ map <silent> <C-s> :source /home/chris/.config/nvim/init.vim<CR>
 map <silent> <C-f> :FZF<CR>
 
 " Hotkey for NerdTree
-map <silent> <C-n> :NERDTreeFocus<CR>
+map <silent> <C-n> :NvimTreeToggle<CR>
 
 " Hotkey for resizing with mouse
 map <silent> <C-o> :set mouse=n<CR>
@@ -88,9 +87,16 @@ map <silent> <C-o> :set mouse=n<CR>
 " Hotkey for using escape to go from terminal mode to normal mode
 :tnoremap <Esc> <C-\><C-n>
 
+" Hotkey for launching LazyGit
+map <silent> <C-\> :LazyGit<CR>
+
 let g:deoplete#enable_at_startup = 1
 
+" Config for the following:
 " LanguageServerProtocol
+" 'lukas-reineke/indent-blankline.nvim'
+" 'kyazdani42/nvim-tree.lua'
+"'kyazdani42/nvim-web-devicons'
 :lua << EOF " Enable lua till end of file
 local nvim_lsp = require('lspconfig')
 
@@ -103,7 +109,7 @@ nvim_lsp.elixirls.setup{
     }
   }
 }
-
+-- indent_blankline config below
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 
@@ -112,3 +118,42 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = true,
 }
+
+-- nvim-web-devicons config below
+require'nvim-web-devicons'.setup {
+ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ override = {
+  zsh = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Zsh"
+  }
+ };
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
+}
+
+-- nvim tree config below
+require("nvim-tree").setup()
+
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
