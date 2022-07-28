@@ -139,9 +139,15 @@ export EDITOR="nvim"
 # highlighting and syntax aliases ----------------------------------------------
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
+#alias for opening html files or other files in the browser
+alias see="explorer.exe"
+
 # git aliases ------------------------------------------------------------------
 
+alias ga="git add"
 alias gs="git status"
+alias gc="git commit -m"
+alias gp="git push"
 
 # odoo and other productivity focused aliases ----------------------------------
 # runs on localhost:8069
@@ -151,7 +157,7 @@ alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracust
 alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 --without-demo=all -i base"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom/proofprocess -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom/proofprocess,./psus-cracustom/mrp_proof,./psus-cracustom/contact_creditcheck -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
@@ -159,27 +165,22 @@ alias runserver="python manage.py runserver"
 #alias for Django projects to run venv
 alias activate=". venv/bin/activate"
 
-#alias for opening html files or other files in the browser
-alias see="explorer.exe"
-
 # check postgresql status and start the server
-alias pstatus="sudo service postgresql status"
+alias pstatus="service postgresql status"
 alias pstart="sudo service postgresql start"
 alias pstop="sudo service postgresql stop"
 
+# FZF update
+export FZF_DEFAULT_COMMAND="fdfind --type f --exclude={.git,.po,.pot,.idea,.vscode,.sass-cache,node_modules,build,tmp}"
+
 export SUDO_EDITOR="nvim"
 alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
-
-# alias for dotdrop to function on dotfiles
-alias dotdrop='/home/chris/.dotman/dotdrop/dotdrop.sh --cfg=/home/chris/.dotman/dotdrop/config.yaml'
 
 # capture the output of a command so it can be retrieved with ret
 cap () { tee /tmp/capture.out; }
 
 # return the output of the most recent command that was captured by cap
 ret () { cat /tmp/capture.out; }
-
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
