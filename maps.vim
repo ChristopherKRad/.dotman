@@ -5,7 +5,7 @@ map <silent> <C-s> :source /home/chris/.config/nvim/init.vim<CR>
 map <silent> <C-f> :FZF<CR>
 
 " Hotkey for NerdTree
-map <silent> <C-n> :NvimTreeToggle<CR>
+map <silent> <C-n> :NvimTreeFocus<CR>
 
 " Hotkey for resizing with mouse
 map <silent> <C-o> :set mouse=n<CR>
