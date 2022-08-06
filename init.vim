@@ -1,5 +1,6 @@
 " curl -fLO $HOME/.config/nvim/autoload/plug.vim --create dirs \ oi" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 " Remember to :source if installing for the first time - map <C-s> will not work until after inital sourcing
+
 set termguicolors
 set number
 set nocompatible	" be iMproved, required
@@ -57,13 +58,12 @@ call plug#end()
 " options
 runtime options.vim
 runtime! plugin-options/*.vim
-" }}}
+
 " mappings
 runtime maps.vim
-" }}}
+
 " Specific for indentaion 
 :set shiftwidth=4
-
 
 " line counter color
 hi LineNr guifg=#E8A84F
