@@ -147,7 +147,8 @@ alias see="explorer.exe"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
-alias gp="git push"
+alias gp="git pull"
+alias gP="git push"
 
 # odoo and other productivity focused aliases ----------------------------------
 # runs on localhost:8069
@@ -157,7 +158,7 @@ alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracust
 alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 --without-demo=all -i base"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom/proofprocess,./psus-cracustom/mrp_proof,./psus-cracustom/contact_creditcheck -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
