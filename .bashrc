@@ -147,6 +147,7 @@ alias see="explorer.exe"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
+alias gr="git restore"
 alias gp="git pull"
 alias gP="git push"
 
