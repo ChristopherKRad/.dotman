@@ -126,7 +126,6 @@ alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
 alias v="nvim"
-alias vim="nvim"
 alias c="clear"
 
 alias python="python3"
@@ -144,6 +143,8 @@ alias see="explorer.exe"
 
 # git aliases ------------------------------------------------------------------
 
+alias gb="git branch"
+alias gs="git switch"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
@@ -159,7 +160,7 @@ alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracust
 alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 --without-demo=all -i base"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,cra_stock,cra_invoice,mrp_proof,cra_calendar -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
@@ -167,13 +168,16 @@ alias runserver="python manage.py runserver"
 #alias for Django projects to run venv
 alias activate=". venv/bin/activate"
 
+# phoenix and other productivity focused aliases
+alias mps="iex -S mix phx.server"
+
 # check postgresql status and start the server
 alias pstatus="service postgresql status"
 alias pstart="sudo service postgresql start"
 alias pstop="sudo service postgresql stop"
 
 # FZF update
-export FZF_DEFAULT_COMMAND="fdfind --type f --exclude={.git,.po,.pot,.idea,.vscode,.sass-cache,node_modules,build,tmp}"
+export FZF_DEFAULT_branch="fdfind --type f --exclude={.git,.po,.pot,.idea,.vscode,.sass-cache,node_modules,build,tmp}"
 
 export SUDO_EDITOR="nvim"
 alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
@@ -188,3 +192,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
