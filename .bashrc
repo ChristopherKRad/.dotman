@@ -125,6 +125,9 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
+alias upd="sudo apt-get update"
+alias ug="sudo apt-get upgrade"
+
 alias v="nvim"
 alias c="clear"
 
@@ -172,9 +175,9 @@ alias activate=". venv/bin/activate"
 alias mps="iex -S mix phx.server"
 
 # check postgresql status and start the server
-alias pstatus="service postgresql status"
-alias pstart="sudo service postgresql start"
-alias pstop="sudo service postgresql stop"
+alias psts="service postgresql status"
+alias pst="sudo service postgresql start"
+alias pstp="sudo service postgresql stop"
 
 # FZF update
 export FZF_DEFAULT_branch="fdfind --type f --exclude={.git,.po,.pot,.idea,.vscode,.sass-cache,node_modules,build,tmp}"
