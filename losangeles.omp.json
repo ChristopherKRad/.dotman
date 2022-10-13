@@ -14,7 +14,7 @@
         {
           "foreground": "#7eb8da",
           "style": "plain",
-          "template": " {{ .UserName }} from {{ .HostName }} on ",
+          "template": " {{ .UserName }} @ {{ .HostName }} on ",
           "type": "session"
         },
         {
@@ -87,7 +87,7 @@
             "style": "full"
           },
           "style": "plain",
-          "template": "<#98bfad>{{ .Path }}</>",
+          "template": "\u250c <#98bfad>{{ .Path }}</>",
           "type": "path"
         },
         {
@@ -111,7 +111,7 @@
         {
           "foreground": "#7eb8da",
           "style": "plain",
-          "template": "\u25b6",
+          "template": "\u2514 \u25b6",
           "type": "text"
         }
       ],
