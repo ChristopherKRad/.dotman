@@ -14,9 +14,17 @@
         {
           "foreground": "#7eb8da",
           "style": "plain",
-          "template": " {{ .UserName }} @ {{ .HostName }} on ",
+          "template": " {{ .UserName }} @ {{ .HostName }}",
           "type": "session"
         },
+
+	{
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": " | ",
+          "type": "text"
+	},
+
         {
           "properties": {
             "root_icon": "\uf292"
@@ -37,13 +45,13 @@
         {
           "foreground": "#ffa5d8",
           "style": "plain",
-          "template": "[{{ .Profile }}{{if .Region}}@{{ .Region }}{{ end }}]",
+          "template": " {{ .Profile }}{{if .Region}}@{{ .Region }}{{ end }}",
           "type": "aws"
         },
         {
           "foreground": "#ffa5d8",
           "style": "plain",
-          "template": "[{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}]",
+          "template": " {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}",
           "type": "kubectl"
         },
         {
@@ -55,7 +63,7 @@
         {
           "foreground": "#ffa5d8",
           "style": "powerline",
-          "template": "[<#ffffff>\ufc8d</> Error, check your command]",
+          "template": " <#ffffff>\ufc8d</> Error, check your command",
           "type": "exit"
         }
       ],
@@ -111,7 +119,13 @@
         {
           "foreground": "#7eb8da",
           "style": "plain",
-          "template": "\u2514 \u25b6",
+          "template": "\u2514",
+          "type": "text"
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": " \u25b6",
           "type": "text"
         }
       ],
