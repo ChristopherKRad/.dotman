@@ -2,7 +2,7 @@
 map <silent> <C-s> :source /home/chris/.config/nvim/init.vim<CR>
 
 " Hotkey for fzf
-map <silent> <C-f> :FZF<CR>
+map <silent> <C-f> :Telescope find_files<CR>
 
 " Hotkey for NerdTree
 map <silent> <C-n> :NvimTreeFocus<CR>
