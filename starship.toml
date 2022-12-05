@@ -51,7 +51,7 @@ format = "on [$symbol$branch]($style) "
 style = "bold green"
 
 [git_status]
-format = '[\[ $all_status\]]($style)'
+format = '[\[ $all_status$ahead_behind \]]($style)'
 style = "bold green"
 conflicted = "🏳"
 up_to_date = ""
