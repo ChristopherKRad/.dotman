@@ -2,7 +2,7 @@
 map <silent> <C-s> :source /home/chris/.config/nvim/init.vim<CR>
 
 " Hotkey for fzf
-map <silent> <C-f> :Telescope find_files<CR>
+map <silent> <C-f> :Telescope find_files hidden=true no_ignore=true<CR>
 
 " Hotkey for NerdTree
 map <silent> <C-n> :NvimTreeFocus<CR>
@@ -15,4 +15,3 @@ map <silent> <C-o> :set mouse=n<CR>
 
 " Hotkey for launching LazyGit
 map <silent> <C-\> :LazyGit<CR>
-
