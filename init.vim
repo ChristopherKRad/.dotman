@@ -1,6 +1,5 @@
 " curl -fLO $HOME/.config/nvim/autoload/plug.vim --create dirs \ oi" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 " Remember to :source if installing for the first time - map <C-s> will not work until after inital sourcing
-
 set termguicolors
 set number
 set nocompatible	" be iMproved, required
@@ -10,15 +9,14 @@ set clipboard+=unnamedplus " unclear clipboard setting
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'EdenEast/nightfox.nvim'
-Plug 'tpope/vim-fugitive'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'feline-nvim/feline.nvim'
 Plug 'mengelbrecht/lightline-bufferline'
+" need to scope vim-surround in a bit more detail
 Plug 'tpope/vim-surround'
-Plug 'kana/vim-textobj-user'
 Plug 'kdheepak/lazygit.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
@@ -27,7 +25,9 @@ Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build'
 Plug 'fannheyward/coc-xml'
 Plug 'mileszs/ack.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'alvan/vim-closetag'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Language Specific
 
@@ -42,8 +42,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
-Plug 'amiralies/vim-textobj-elixir'
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'slashmili/alchemist.vim'
 
 " XML
 autocmd BufNewFile, BufRead *.xml set filetype=xml
@@ -65,6 +65,7 @@ runtime maps.vim
 
 " Specific for indentaion 
 :set shiftwidth=4
+
 
 " line counter color
 hi LineNr guifg=#E8A84F
