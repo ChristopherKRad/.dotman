@@ -88,10 +88,10 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -a -l'
-alias l='ls -CF'
-alias ls='ls -l --color=auto'
+alias ll='logo-ls -al'
+alias la='logo-ls -1a'
+alias l='logo-ls'
+alias ls='logo-ls -l'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -125,10 +125,8 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
-alias upd="sudo apt-get update"
-alias ug="sudo apt-get upgrade"
-
 alias v="nvim"
+alias vim="nvim"
 alias c="clear"
 
 alias python="python3"
@@ -146,12 +144,9 @@ alias see="explorer.exe"
 
 # git aliases ------------------------------------------------------------------
 
-alias gb="git branch"
-alias gs="git switch"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
-alias gr="git restore"
 alias gp="git pull"
 alias gP="git push"
 
@@ -163,7 +158,7 @@ alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracust
 alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 --without-demo=all -i base"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,cra_stock,cra_invoice,mrp_proof,cra_calendar -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom/proofprocess,./psus-cracustom/mrp_proof,./psus-cracustom/contact_creditcheck -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
@@ -171,19 +166,27 @@ alias runserver="python manage.py runserver"
 #alias for Django projects to run venv
 alias activate=". venv/bin/activate"
 
-# phoenix and other productivity focused aliases
+#alias for Phoenix / Elixir ----------------------------------------------------
 alias mps="iex -S mix phx.server"
+alias mem="mix ecto.migrate"
 
 # check postgresql status and start the server
-alias psts="service postgresql status"
-alias pst="sudo service postgresql start"
-alias pstp="sudo service postgresql stop"
+alias pstatus="service postgresql status"
+alias pstart="sudo service postgresql start"
+alias pstop="sudo service postgresql stop"
 
-# FZF update
-export FZF_DEFAULT_branch="fdfind --type f --exclude={.git,.po,.pot,.idea,.vscode,.sass-cache,node_modules,build,tmp}"
+# elixir and other productivity focused aliases -------------------------------
+# fly.io export paths
+export FLYCTL_INSTALL="/home/chris/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 
 export SUDO_EDITOR="nvim"
 alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
+
+# FZF_DEFAULT_COMMAND
+source /usr/share/doc/fzf/examples/key-bindings.bash
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 # capture the output of a command so it can be retrieved with ret
 cap () { tee /tmp/capture.out; }
@@ -195,5 +198,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# initialize starship
+eval "$(starship init bash)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
