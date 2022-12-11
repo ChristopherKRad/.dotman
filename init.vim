@@ -15,6 +15,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'feline-nvim/feline.nvim'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 " need to scope vim-surround in a bit more detail
 Plug 'tpope/vim-surround'
 Plug 'kdheepak/lazygit.vim'
