@@ -1,16 +1,16 @@
 {
 	"xml.java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
 	"xml.codeLens.enabled": true,
-	"elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+	"elixir.pathToElixirLS": "~/.config/nvim/plugged/coc-elixir/els-release/language_server.sh",
 	"elixirLS.suggestSpecs": false,
 	"elixirLS.dialyzerEnabled": true,
 	"elixirLS.fetchDeps": false,
 	"coc.preferences.useQuickfixForLocations": true,
+	"jedi.executable.command": "/home/chris/.local/bin/jedi-language-server",
 	"suggest.floatEnable": true,
 	"jedi.enable": true,
 	"jedi.markupKindPreferred": "markdown",
 	"jedi.trace.server": "verbose",
-	"jedi.executable.command": "jedi-language-server",
 	"jedi.jediSettings.caseInsensitiveCompletion": true,
 	"jedi.completion.resolveEagerly": true,
 	"jedi.hover.enable": true
