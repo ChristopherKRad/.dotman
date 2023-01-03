@@ -145,6 +145,7 @@ alias see="explorer.exe"
 # git aliases ------------------------------------------------------------------
 
 alias ga="git add"
+alias gb="git branch"
 alias gs="git status"
 alias gc="git commit -m"
 alias gp="git pull"
@@ -155,10 +156,14 @@ alias gP="git push"
 alias odoo="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -d odoo15 "
 
 # Runs odoo for the first time without demo data on odoo15 db
-alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise -d odoo15 --without-demo=all -i base"
+alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -d odoo15 --without-demo=all -i base"
+
+
+# Runs odoo install for psus-cracustom module
+alias odooinstall="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,mrp_proof -d odoo15"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u ./psus-cracustom/proofprocess,./psus-cracustom/mrp_proof,./psus-cracustom/contact_creditcheck -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u proofprocess,mrp_proof -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
@@ -172,7 +177,7 @@ alias mem="mix ecto.migrate"
 
 # check postgresql status and start the server
 alias pstatus="service postgresql status"
-alias pstart="sudo service postgresql start"
+alias pst="sudo service postgresql start"
 alias pstop="sudo service postgresql stop"
 
 # elixir and other productivity focused aliases -------------------------------
@@ -183,10 +188,6 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 export SUDO_EDITOR="nvim"
 alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
-
-# FZF_DEFAULT_COMMAND
-source /usr/share/doc/fzf/examples/key-bindings.bash
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 # capture the output of a command so it can be retrieved with ret
 cap () { tee /tmp/capture.out; }
