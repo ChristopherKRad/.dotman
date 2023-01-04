@@ -160,10 +160,10 @@ alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cr
 
 
 # Runs odoo install for psus-cracustom module
-alias odooinstall="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,mrp_proof -d odoo15"
+alias odooinstall="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,mrp_proof,cra_calendar,cra_invoice,cra_purchase,cra_stock -d odoo15"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u proofprocess,mrp_proof -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u proofprocess,mrp_proof,cra_calendar,cra_invoice,cra_purchase,cra_stock -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
