@@ -20,15 +20,18 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'tpope/vim-surround'
 Plug 'kdheepak/lazygit.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', {'branch': 'master'}
 Plug 'neovim/nvim-lspconfig'
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
-Plug 'fannheyward/coc-xml'
 Plug 'mileszs/ack.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'alvan/vim-closetag'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+" Coc Extensions
+Plug 'neoclide/coc.nvim', {'branch': 'master'}
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Plug 'fannheyward/coc-xml'
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 " Completion
 Plug 'neovim/nvim-lspconfig'
@@ -53,7 +56,6 @@ Plug 'davidhalter/jedi-vim'
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'slashmili/alchemist.vim'
 
 " XML
