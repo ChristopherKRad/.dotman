@@ -9,13 +9,13 @@ $env_var\
 $username\
 $hostname\
 $time\
-$python\
-$elixir\
 $git_branch\
 $git_state\
 $git_status\
 $line_break\
 $directory\
+$python\
+$elixir\
 $line_break\
 $character"""
 
@@ -69,7 +69,7 @@ symbol = " "
 [git_branch]
 symbol = "[ | ](#ffffff) "
 format = "[$symbol$branch]($style) "
-style = "#7eb8da"
+style = "#BF94E4"
 
 [git_status]
 format = "[[($conflicted $untracked $modified $staged $renamed $deleted )](218)($ahead_behind $stashed)]($style)"
@@ -90,13 +90,13 @@ deleted = ""
 format = "[ $context](bold blue) "
 
 [elixir]
-symbol = " "
-format = "[$symbol($version)]($style)"
+symbol = "  "
+format = "[$symbol($version)](#734F96)"
 
 [python]
-symbol = " "
+symbol = "  "
 python_binary = "python3"
-format = "[$symbol($version) ]($style)"
+format = "[$symbol($version)]($style)"
 style = "#efb261"
 
 [nodejs]
