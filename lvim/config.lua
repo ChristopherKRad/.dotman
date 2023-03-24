@@ -19,7 +19,6 @@ lvim.colorscheme = "lunar"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<leader>fg"] = "<cmd>Telescope live_grep<CR>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -73,13 +72,13 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
-  "elixir",
   "javascript",
   "json",
   "lua",
   "python",
   "typescript",
   "tsx",
+  "elixir",
   "css",
   "rust",
   "java",
@@ -164,33 +163,27 @@ lvim.builtin.treesitter.highlight.enable = true
 --   },
 -- }
 
--- add telescope-fzy-native.nvim
-lvim.builtin.telescope.on_config_done = function(telescope)
-  pcall(telescope.load_extension, "fzy_native")
-end
-
--- add telescope-project.nvim
-lvim.builtin.telescope.on_config_done = function(telescope)
-  pcall(telescope.load_extension, "project")
-end
-
--- define additional plugins in your plugins section
+-- Additional Plugins
 lvim.plugins = {
-  -- ...
   {
-    "nvim-telescope/telescope-fzy-native.nvim",
-    run = "make",
-    event = "BufRead",
-  },
-  {
-    "nvim-telescope/telescope-project.nvim",
-    event = "BufWinEnter",
-    setup = function()
-      vim.cmd [[packadd telescope.nvim]]
-    end,
-  },
-  -- ...
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        -- optional configuration
+        keymaps = {
+          submit = "<C-s>"
+        }
+  })
+  end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 }
+
+-- ChatGPT.nvim
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
