@@ -180,6 +180,12 @@ lvim.plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
+  },
+  {
+    "alvan/vim-closetag",
+    config = function()
+      vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.heex,*.xml"
+    end,
   }
 }
 
