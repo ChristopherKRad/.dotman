@@ -125,8 +125,8 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 
-alias v="nvim"
-alias vim="nvim"
+alias v="lvim"
+alias vim="lvim"
 alias c="clear"
 
 alias python="python3"
@@ -135,6 +135,8 @@ alias p="python3"
 export EDITOR="nvim"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/completion.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # highlighting and syntax aliases ----------------------------------------------
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
@@ -160,10 +162,10 @@ alias odooreset="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cr
 
 
 # Runs odoo install for psus-cracustom module
-alias odooinstall="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,mrp_proof,cra_calendar,cra_invoice,cra_purchase,cra_stock -d odoo15"
+alias odooinstall="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -i proofprocess,mrp_proof,cra_calendar,cra_invoice,cra_purchase,cra_stock,cra_sol_id,cra_mrp_dates,cra_quant_uom,mo_reset,mo_cancel -d odoo15"
 
 # Runs odoo update for psus-cracustom module
-alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u proofprocess,mrp_proof,cra_calendar,cra_invoice,cra_purchase,cra_stock -d odoo15"
+alias odooupdate="python ./odoo-bin --addons-path=./addons,./enterprise,./psus-cracustom -u proofprocess,mrp_proof,cra_calendar,cra_invoice,cra_purchase,cra_stock,cra_sol_id,cra_mrp_dates,cra_quant_uom,mo_reset,mo_cancel -d odoo15"
 
 #alias for Django projects to run server
 alias runserver="python manage.py runserver"
@@ -174,20 +176,29 @@ alias activate=". venv/bin/activate"
 #alias for Phoenix / Elixir ----------------------------------------------------
 alias mps="iex -S mix phx.server"
 alias mem="mix ecto.migrate"
+alias mgm="mix ecto.gen.migration"
+
 
 # check postgresql status and start the server
 alias pstatus="service postgresql status"
 alias pst="sudo service postgresql start"
 alias pstop="sudo service postgresql stop"
 
-# elixir and other productivity focused aliases -------------------------------
+# elixir and other productivity focused aliases --------------------------------
 # fly.io export paths
 export FLYCTL_INSTALL="/home/chris/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
+# lunarvim configuration -------------------------------------------------------
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+. "$HOME/.cargo/env"
+export KERL_BUILD_DOCS=yes
 
 export SUDO_EDITOR="nvim"
 alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
+
+source ~/.config/.open_ai
 
 # capture the output of a command so it can be retrieved with ret
 cap () { tee /tmp/capture.out; }
@@ -202,6 +213,7 @@ export NVM_DIR="$HOME/.nvm"
 # this enables iex history via erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# initialize starship
 eval "$(starship init bash)"
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
