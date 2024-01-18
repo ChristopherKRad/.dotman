@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
+lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -113,6 +113,14 @@ lvim.builtin.treesitter.highlight.enable = true
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
 
+local root_pattern = require("lspconfig").util.root_pattern
+
+require 'lspconfig'.elixirls.setup {
+  filetypes = { "elixir", "eelixir", "heex", "surface" },
+  root_dir = root_pattern("mix.exs", ".git") or vim.loop.os_homedir(),
+  cmd = { "/home/chris/elixir-ls/release2/language_server.sh" },
+}
+
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
 -- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
@@ -173,8 +181,8 @@ lvim.plugins = {
         keymaps = {
           submit = "<C-s>"
         }
-  })
-  end,
+      })
+    end,
     requires = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
@@ -184,9 +192,10 @@ lvim.plugins = {
   {
     "alvan/vim-closetag",
     config = function()
-      vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.heex,*.xml"
+      vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.heex,*.xml,*.ex"
     end,
-  }
+  },
+  { "folke/trouble.nvim" }
 }
 
 -- ChatGPT.nvim
